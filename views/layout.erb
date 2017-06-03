@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Webapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- http://ionicabizau.github.io/gridly/example/ -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gridly/1.4.8/gridly.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <% flash.keys.each do |type| %>
+      <div class="flash flash-<%= type %>">
+        <%= flash[type] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="main.js" defer></script>
+  </body>
+</html>

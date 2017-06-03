@@ -3,10 +3,15 @@ require "bundler/setup"
 Bundler.require(:default, Sinatra::Application.environment)
 Dotenv.load
 
+enable :sessions
+use Rack::Flash
+
 get "/" do
-  public_folder = Sinatra::Application.public_folder
-  index_html = File.join(public_folder, "index.html")
-  send_file(index_html)
+  erb :form
+end
+
+get "/boilerplate" do
+  erb :boilerplate
 end
 
 get "/cities" do
@@ -30,5 +35,6 @@ end
 
 post "/cities" do
   puts params
+  flash[:notice] = "#{params} was POSTed to the server."
   redirect to("/")
 end
