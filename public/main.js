@@ -8,6 +8,7 @@ let fetchCities = () => {
     }
   })
   .then((json) => {
+    // format city objects so select2 is happy.
     cities = json.cities.map((city) => {
       city.text = city.name
       return city
@@ -26,9 +27,10 @@ let initializeSelectCities = (cities) => {
 
 fetchCities()
 
-// change name of select form field depending on its contents.
+// change name of #select-cities form field depending on its contents.
 $('#select-cities').on('select2:close', (event) => {
   console.log('select2:close event fired.')
+
   let i = event.target.options.selectedIndex
   let selectedOption = event.target[i]
   if (!isNaN(selectedOption.value)) {  // is this string input a number?
