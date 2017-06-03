@@ -8,7 +8,7 @@
 
 ## Relevant files
 
-* [public/index.html](public/index.html)
+* [views/form.erb](views/form.erb)
 * [public/main.js](public/main.js)
 
 ## Instructions
