@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Webapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- http://ionicabizau.github.io/gridly/example/ -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gridly/1.4.8/gridly.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col">
+        <h1>Primary Heading</h1>
+        <p>Only one per page, please.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h2>Communicating with Web Servers</h2>
+        <p>
+          The Internet consists of <em>millions</em> of web servers, each one
+          waiting for you to make a request for the resources they provide. They
+          offer information such as the current weather conditions, stock market
+          prices, and even
+          <a href="https://api.nasa.gov/api.html#apod">images from other worlds</a>.
+          The best part is, <strong>all of these servers speak HTTP</strong>.
+        <p>
+      </div>
+
+      <div class="col">
+        <h2>Todo</h2>
+        <ul>
+          <li>Learn Web Development</li>
+          <li>Create Hardware Startup:
+            <ul>
+              <li>Imagine an awesome product.</li>
+              <li>Build awesome product.</li>
+              <li>Get funding.</li>
+              <li>Rule the world.</li>
+            </ul>
+          </li>
+          <li>Plan Vancouver vacation</li>
+          <li>Buy vacation house</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h2>Code</h2>
+        <div class="code">
+# weather.rb
+require "net/http"
+require "active_support/core_ext/hash"
+require "pp"
+
+weather_url = "http://forecast.weather.gov/MapClick.php?lat=42.35&lon=-71.06&FcstType=dwml"
+uri = URI.parse(weather_url)            # convert the URL string to a URI object
+response = Net::HTTP.get_response(uri)  # issue a HTTP GET request
+body = Hash.from_xml(response.body)     # convert XML to a more familiar data type
+
+pp body  # "pretty-print" the hash
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+
+          <!-- select2.js example -->
+          <form id="city-form" name="cityForm" action="/cities" method="post">
+            <select id="select-cities" class="select-two">
+              <option></option>
+            </select>
+
+            <button type="submit">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="main.js" defer></script>
+  </body>
+</html>
