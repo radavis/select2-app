@@ -19,6 +19,23 @@
         <p>Only one per page, please.</p>
       </div>
     </div>
+    
+    <div class="row">
+      <div class="col">
+        <h2> Select2.js Example </h2>
+
+        <!-- select2.js example -->
+        <form id="city-form" name="cityForm" action="/cities" method="post">
+          <select id="select-cities" name="cityName">
+            <option></option>
+          </select>
+
+          <button type="submit">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
 
     <div class="row">
       <div class="col">
@@ -68,22 +85,6 @@ body = Hash.from_xml(response.body)     # convert XML to a more familiar data ty
 pp body  # "pretty-print" the hash
         </div>
       </div>
-
-      <div class="row">
-        <div class="col">
-
-          <!-- select2.js example -->
-          <form id="city-form" name="cityForm" action="/cities" method="post">
-            <select id="select-cities" class="select-two">
-              <option></option>
-            </select>
-
-            <button type="submit">Submit</button>
-          </form>
-
-        </div>
-      </div>
-    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
